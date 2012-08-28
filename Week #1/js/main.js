@@ -9,6 +9,7 @@
 window.addEventListener("DOMContentLoaded", function(){
 	//getElementById Function
 	var selectColor = ["--Choose A Color--", "Black", "White", "Silver", "Red", "Blue", "Yellow", "Green"],
+		selectMake = ["Make", "Acura", "Aston Martin", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chrysler", "Dodge", "Ferrari", "FIAT", "Ford", "GMC", "Honda", "Hyundai", "Infiniti", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus", "Maserati", "Maybach", "Mazda", "McLaren", "Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", "Saab", "Scion", "Smart", "Subaru", "Suzuki", "Tesla", "Toyota", "Volkswagon", "Volvo"],
 		conditionValue,
 		holdValues
 	;
