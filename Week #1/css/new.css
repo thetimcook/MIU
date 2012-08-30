@@ -2,6 +2,10 @@ html {
 	background-image: url("images/bg3.jpg");
 	width: 100%;
 }
+@font-face {
+	font-family: modernpics;
+	src: url('fonts/modernpics.otf');
+}
 body {
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
@@ -34,10 +38,24 @@ header{
 	width: 95%;
 	margin: 4px;
 }
+header > #search {
+	font-family: modernpics;
+	font-size: 28px;
+	background: white;
+	float: right;
+	margin: -40px 12px 4px auto;
+	border: 1px rgba(47, 126, 178, 1.0) solid;
+	border-radius: 8px;
+	padding: auto;
+	width: 28px;
+	height: 28px;
+}
 h1 {
+	margin: 12px auto 12px auto;
+	text-align: center;
 	color: #f2f2f2;
 	text-shadow: 0px -1.6px 1px rgba(0,0,0,0.5);
-	padding: inherit;
+	width: 200px;
 }
 h2 {
 	color: white;
@@ -64,7 +82,8 @@ a#tagcar {
 	box-shadow: 0px 4px 0px 0px rgba(47, 126, 178, 1.0),
 				0px 3px 6px black;
 	text-align: center;
-	margin: 8px;
+	margin: 8px auto 8px auto;
+	width: 280px;
 }
 a {
 	color: rgba(47, 126, 178, 1.0);
@@ -75,43 +94,15 @@ footer{
 	padding: 4px;
 	margin-top: 8px;
 }
-legend {
-	background: rgba(48, 127, 179, 1.0);
-	font-weight: bold;
-	color: white;
-	padding: 4px 8px 4px 24px;
-	text-align: inherit;
-	margin: 0px 0px 0px -24px;
-}
 fieldset{
 	width: 280px;
 	margin: 12px auto 12px auto;
 	border-style: none;
 	background: rgba(109, 174, 218, 1.0);
 }
-input#make {
-	display: block;
-	width: 264px;
-}
-input#model {
-	display: block;
-	width: 264px;
-}
-input#year {
-	display: block;
-	width: 264px;
-}
 ul {
 	list-style-type: none;
-	padding: 0px 2px 0px 2px;
-}
-textarea {
-	resize: none;
-	width: 268px;
-	height: 60px;
-}
-form {
-	padding: 0px 0px 12px 0px;
+	padding: 0px;
 }
 input#submit {
 	color: white;
@@ -145,14 +136,17 @@ img {
 }
 li {
 	width: 100%;
-	font-size: 18px;
-	text-align: left;
 	margin: 0px;
-	padding: 4px 0px 4px 8px;
 	height: 40px;
 	border-top: 2px gray;
 	border-bottom: 2px white;
 	background: -webkit-linear-gradient(#ffffff 0%, #adadad 100%);
+}
+li > a {
+	margin: auto 12px auto 12px;
+	padding: 2px;
+	font-size: 18px;
+	text-align: left;
 }
 
 
