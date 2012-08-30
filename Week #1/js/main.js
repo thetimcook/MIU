@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		holdValues
 	;
 	
-	function $(x){
+	function ge(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Create select field element and populate with options.
 	function pickColor(selectColor){
 		var formTag = document.getElementsByTagName("form"),
-			selectLi = $('select');
+			selectLi = ge('select');
 			makeSelect = document.createElement('select');
 			makeSelect.setAttribute("id", "colors");
 		for (var i=0, j=selectColor.length; i<j; i++){
@@ -61,18 +61,18 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControls(n) {
 		switch(n) {
 			case "on":
-				$('headerBar').innerHTML = "Tagged Cars";
-				$('carForm').style.display = "none";
-				$('clear').style.display = "inline";
-				$('displayLink').style.display = "none";
-				$('addNew').style.display = "inline";
+				ge('headerBar').innerHTML = "Tagged Cars";
+				ge('carForm').style.display = "none";
+				ge('clear').style.display = "inline";
+				ge('displayLink').style.display = "none";
+				ge('addNew').style.display = "inline";
 				break;
 			case "off":
-				$('carForm').style.display = "block";
-				$('clear').style.display = "inline";
-				$('displayLink').style.display = "inline";
-				$('addNew').style.display = "none";
-				$('cars').style.display = "none";
+				ge('carForm').style.display = "block";
+				ge('clear').style.display = "inline";
+				ge('displayLink').style.display = "inline";
+				ge('addNew').style.display = "none";
+				ge('cars').style.display = "none";
 				break;
 			default:
 				return false;
@@ -90,14 +90,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		var condition = getSelectedRadio();
 		var display = getCheckboxValue();
 		var car				= {};
-			car.make 		= ["Make: ", $('make').value];
-			car.model		= ["Model: ", $('model').value];
-			car.year		= ["Year: ", $('year').value];
-			car.doors		= ["Number of doors: ", $('doors').value];
-			car.colors 		= ["Color: ", $('colors').value];
+			car.make 		= ["Make: ", ge('make').value];
+			car.model		= ["Model: ", ge('model').value];
+			car.year		= ["Year: ", ge('year').value];
+			car.doors		= ["Number of doors: ", ge('doors').value];
+			car.colors 		= ["Color: ", ge('colors').value];
 			car.display		= ["What makes it stand out? ", display];
 			car.condition	= ["Condition: ", condition];
-			car.describe	= ["Describe the car in your own words. ", $('describe').value];
+			car.describe	= ["Describe the car in your own words. ", ge('describe').value];
 		// Save data to local storage: Use Strinify to convert our object to a sting.
 		localStorage.setItem(id, JSON.stringify(car));
 		alert("Car Tagged!");
@@ -115,7 +115,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$('cars').style.display = "block";
+		ge('cars').style.display = "block";
 		for (var i=0, len=localStorage.length; i<len; i++){
 			var makeLi = document.createElement('li');
 			var linksLi = document.createElement('li');
@@ -221,11 +221,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("off");
 		
 		//populate form fields with current values
-		$('make').value = car.make[1];
-		$('model').value = car.model[1];
-		$('year').value = car.year[1];
-		$('doors').value = car.doors[1];
-		$('colors').value = car.colors[1];
+		ge('make').value = car.make[1];
+		ge('model').value = car.model[1];
+		ge('year').value = car.year[1];
+		ge('doors').value = car.doors[1];
+		ge('colors').value = car.colors[1];
 
 		var checkboxes = document.forms[0].display;
 		for (var i=0; i<car.display[1].length; i++) {
@@ -242,14 +242,14 @@ window.addEventListener("DOMContentLoaded", function(){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
-		$('describe').value = car.describe[1];
+		ge('describe').value = car.describe[1];
 		
 		//remove teh listener from input save button.
 		save.removeEventListener("click", storeData);
 		//Change submit button value to edit button
-		$('headerBar').innerHTML = "Edit Car Tag";
-		$('submit').value = "Edit Car Tag";
-		var editSubmit = $('submit');
+		ge('headerBar').innerHTML = "Edit Car Tag";
+		ge('submit').value = "Edit Car Tag";
+		var editSubmit = ge('submit');
 		//Save the key value established in this function as a property of the editSubmit event
 		//so we can use that value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
@@ -279,10 +279,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function validate(e) {
 		//Define elements you want to check
-		var getMake = $('make');
-		var getModel = $('model');
-		var getYear = $('year');
-		var getColor = $('colors');
+		var getMake = ge('make');
+		var getModel = ge('model');
+		var getYear = ge('year');
+		var getColor = ge('colors');
 		
 		//reset error messages
 		errMsg.innerHTML = "";
@@ -307,7 +307,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			messageAry.push(modelError);
 		}
 		//Year Validation
-		var re = /^\d{4}$/;
+		var re = /^\d{4}ge/;
 		if (!re.exec(getYear.value)) {
 			var yearError = "Please enter a valid year.";
 			getYear.style.border = "1px solid red";
@@ -329,14 +329,14 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	}
 	//Variable defaults
-	var errMsg = $('errors');
+	var errMsg = ge('errors');
 	pickColor(selectColor);
 	
 	//Set link and submit click events
 	
-	var displayLink = $('displayLink');
+	var displayLink = ge('displayLink');
 	displayLink.addEventListener("click", getData);
-	var clearLink = $('clear');
+	var clearLink = ge('clear');
 	clearLink.addEventListener("click", clearLocal);
 	var save = document.getElementById('submit');
 	save.addEventListener("click", validate);

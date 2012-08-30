@@ -27,20 +27,30 @@ h1 {
 	padding: inherit;
 }
 h2 {
+	color: white;
 	text-align: center;
 	padding: 16px;
 	font-size: 16pt;
-	color: rgba(98, 173, 217, 1.0);
+	font-weight: lighter;
+	text-shadow: 0px 1px 4px black;
 }
 nav {
 	color: rgba(47, 126, 178, 1.0);
 	text-align: center;
 	padding: 2px;
 }
-a#tag {
-	font-size: 30pt;
+a#tagcar {
+	font-size: 24pt;
 	font-weight: bold;
 	color: rgba(47, 126, 178, 1.0);
+}
+#tag {
+	background: white;
+	border-radius: 8px;
+	border: 1px rgba(47, 126, 178, 1.0) solid;
+	box-shadow: 0px 4px 0px 0px rgba(47, 126, 178, 1.0);
+	text-align: center;
+	margin: 8px;
 }
 a {
 	color: rgba(47, 126, 178, 1.0);
@@ -113,6 +123,18 @@ img {
 	text-align: center;
 	max-height: 50px;
 	max-width: 284px;
+}
+#feature {
+	background: rgba(98, 173, 217, 1.0);
+	margin: -17px auto 8px auto;
+	width: 95%;
+	padding-bottom: 4px;
+}
+#browse {
+	width: 100%;
+	border-bottom: 1px white;
+	border-top: 1px gray;
+	background: -webkit-linear-gradient(#ffffff 0%, #adadad 100%);
 }
 
 
