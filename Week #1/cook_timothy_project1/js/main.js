@@ -109,9 +109,21 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("There are no cars in your Garage, so I went ahead and added a couple!");
 			autoFill();
 		}
+		//Make search bar
+		var searchBar = ge("searchbar");
+		var makeInput = document.createElement('input');
+		searchBar.appendChild(makeInput);
+		makeInput.setAttribute("name", "search");
+		makeInput.setAttribute("type", "search");
+		makeInput.setAttribute("id", "search");
+		makeInput.setAttribute("title", "Search");
+		makeInput.setAttribute("placeholder", "Search");
+
+		
+		
+		
 		//Write Data from local storage to the browser.
-		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute("id", "cars");
+		var makeDiv = ge('cars');
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
@@ -152,6 +164,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		makeList.style.padding		= "8px 8px 12px 8px";
 	}
 	//Get logo for car make.
+
 
 	function getLogo(logo, makeSubList) {
 		var imageLi = document.createElement('li');
@@ -209,6 +222,44 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
+
+	//Search function
+
+
+/*
+	$(document).ready(function () {
+		$('#search').keyup(function(event) {
+			var search_text = $('#search').val();
+			var rg = new RegExp(search_text,'i');
+			$('#cars .cars .make').each(function(){
+	 			if($.trim(ge(this).html()).search(rg) == -1) {
+					$(this).parent().css('display', 'none');
+	 				$(this).css('display', 'none');
+					$(this).next().css('display', 'none');
+					$(this).next().next().css('display', 'none');
+				}	
+				else {
+					$(this).parent().css('display', '');
+					$(this).css('display', '');
+					$(this).next().css('display', '');
+					$(this).next().next().css('display', '');
+				}
+			});
+		});
+	});
+	 
+	$('#search_clear').click(function() {
+		$('#search').val('');	
+	 
+		$('#cars .cars .make').each(function(){
+			$(this).parent().css('display', '');
+			$(this).css('display', '');
+			$(this).next().css('display', '');
+			$(this).next().next().css('display', '');
+		});
+	});
+*/
+
 
 
 	

@@ -20,6 +20,18 @@ header{
 	padding: 0px 0px 12px 0px;
 	height: 48px;
 }
+#searchbar {
+	text-align: center;
+	margin: 0px;
+	border-bottom: 1px rgba(47, 126, 178, 1.0) solid;
+	background: -webkit-linear-gradient(rgba(98, 173, 217, 1.0) 0%, rgba(47, 126, 178, 1.0) 100%);
+	padding: 0px 0px 0px 0px;
+	width: 100%;
+}
+#search {
+	width: 95%;
+	margin: 4px;
+}
 h1 {
 	color: #f2f2f2;
 	text-shadow: 0px -1.6px 1px rgba(0,0,0,0.5);
