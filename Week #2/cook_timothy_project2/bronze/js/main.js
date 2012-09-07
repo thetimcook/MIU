@@ -109,45 +109,38 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("There are no cars in your Garage, so I went ahead and added a couple!");
 			autoFill();
 		}
-		//Make search bar
-		var searchBar = ge("searchbar");
-		var makeInput = document.createElement('input');
-		searchBar.appendChild(makeInput);
-		makeInput.setAttribute("name", "search");
-		makeInput.setAttribute("type", "search");
-		makeInput.setAttribute("id", "search");
-		makeInput.setAttribute("title", "Search");
-		makeInput.setAttribute("placeholder", "Search");
-
-		
-		
 		
 		//Write Data from local storage to the browser.
-		var makeDiv = ge('cars');
-		var makeList = document.createElement('ul');
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
+		var callDiv = ge('cars');
+		var makeList = document.createElement('div');
+		callDiv.appendChild(makeList);
+		callDiv.setAttribute("data-role", "content");
+		makeList.setAttribute("data-role", "collapsible-set");
+		var makeFilter = document.createElement('div');
+		makeList.appendChild(makeFilter);
+		makeFilter.setAttribute("data-role", "listview");
+		makeFilter.setAttribute("data-inset", "true");
+		makeFilter.setAttribute("data-filter", "true");
 		ge('cars').style.display = "block";
 		for (var i=0, len=localStorage.length; i<len; i++){
-			var makeLi = document.createElement('li');
-			var linksLi = document.createElement('li');
+			var makeLi = document.createElement('div');
+			var linksLi = document.createElement('a');
+			makeLi.setAttribute("data-role", "collapsible");
 			makeList.appendChild(makeLi);
-			makeLi.style.padding = "0px 0px 12px 0px"
-			makeLi.style.margin = "0px 0px 8px 0px";
-			makeLi.style.borderBottom = "1px white solid"
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//Convert the string from local storage value back to an object.
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeLi.appendChild(makeSubList);
-			getLogo(obj.make[1], makeSubList);
+			/* getCar(obj.make[1], makeSubList); */
 			for (var n in obj) {
-				var makeSubLi = document.createElement('li');
-				makeSubList.appendChild(makeSubLi);
+				var makeCar =document.createElement('h3');
+				makeLi.appendChild(makeCar);
+				
+				var makeSubLi = document.createElement('p');
+				makeLi.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
+				makeLi.appendChild(linksLi);
 			}
 			var breakTag = document.createElement('br');
 			linksLi.appendChild(breakTag);
@@ -157,23 +150,22 @@ window.addEventListener("DOMContentLoaded", function(){
 			var breakTag = document.createElement('br');
 			linksLi.appendChild(breakTag);
 		}
-		makeDiv.style.margin		= "0px 0px 8px 0px";
-		makeList.style.fontSize		= "10pt";
-		makeList.style.margin		= "8px 8px 0px 8px";
-		makeList.style.background	= "rgba(109, 174, 218, 1.0)";
-		makeList.style.padding		= "8px 8px 12px 8px";
 	}
 	//Get logo for car make.
 
-
-	function getLogo(logo, makeSubList) {
-		var imageLi = document.createElement('li');
+/*
+	function getCar(make, makeSubList) {
+		var imageLi = document.createElement('h3');
 		makeSubList.appendChild(imageLi);
+		imageLi.appendChild(make);
+		imageLi.appendChild(model);
+
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ logo +".jpg");
 		imageLi.appendChild(newImg);
+
 	}	
-	
+*/	
 	
 	//Auto fill data
 
@@ -222,44 +214,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
-
-	//Search function
-
-
-/*
-	$(document).ready(function () {
-		$('#search').keyup(function(event) {
-			var search_text = $('#search').val();
-			var rg = new RegExp(search_text,'i');
-			$('#cars .cars .make').each(function(){
-	 			if($.trim(ge(this).html()).search(rg) == -1) {
-					$(this).parent().css('display', 'none');
-	 				$(this).css('display', 'none');
-					$(this).next().css('display', 'none');
-					$(this).next().next().css('display', 'none');
-				}	
-				else {
-					$(this).parent().css('display', '');
-					$(this).css('display', '');
-					$(this).next().css('display', '');
-					$(this).next().next().css('display', '');
-				}
-			});
-		});
-	});
-	 
-	$('#search_clear').click(function() {
-		$('#search').val('');	
-	 
-		$('#cars .cars .make').each(function(){
-			$(this).parent().css('display', '');
-			$(this).css('display', '');
-			$(this).next().css('display', '');
-			$(this).next().next().css('display', '');
-		});
-	});
-*/
-
 
 
 	
@@ -358,7 +312,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			messageAry.push(modelError);
 		}
 		//Year Validation
-		var re = /^\d{4}ge/;
+		var re = /^\d{4}$/;
 		if (!re.exec(getYear.value)) {
 			var yearError = "Please enter a valid year.";
 			getYear.style.border = "1px solid red";

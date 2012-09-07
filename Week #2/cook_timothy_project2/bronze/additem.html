@@ -2,22 +2,32 @@
 
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Project #1 for VFW at Full Sail University." />
-		<meta name="keywords" content="html, mobile development, full sail university, vfw" />
-		<meta name="robots" content="noindex, nofollow" />
-		<meta name="viewport" content="user-scalable=no, width=device-width" />
-<!-- 		<meta name="viewport" content="target-densitydpi=device-dpi" /> -->
-		
+
+		<meta charset="utf-8">
+			
 		<title>MiU Project #2</title>
+			
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		
+		<!-- StyleSheets under here -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+		
+		
+		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="js/libs/modernizr.custom.min.js"></script>
 		
 		<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<header>
+		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1 id="headerBar">Create new tag</h1>
-		</header>
-		<div id="searchbar">
 		</div>
 		<nav>
 			<a href="#" id="clear">Clear Car Data</a><a> | </a>
@@ -25,7 +35,7 @@
 			<a href="additem.html" id="addNew" style="display:none;">Tag New Car</a>
 		</nav>	
 		<form action="#" method="post" id="carForm">
-			<fieldset>
+			<fieldset data-role="content">
 				<legend>Describe the Car</legend>
 				<span>* fields are required.</span>
 				<ul id="errors"></ul>
@@ -74,13 +84,22 @@
 			</fieldset>
 			<input type="submit" value="Save Car Info" id="submit" name="submit" />
 		</form>
-		<div id="cars">
+		<div id="cars" data-role="content">
+			<div data-role="collapsible-set">
+				<div data-role="listview" data-inset="true" data-filter="true">
+				
+				
+				</div>
+			</div>
 		</div>
 		<footer>
 			<p><a href="http://progress.audiusa.com/">Audi</a>, <a href="http://www.bmw.com/">BMW</a>, <a href="http://www.cadillac.com/">Cadillac</a>, <a href="http://www.porsche.com/">Porsche</a> and <a href="http://www.ferrari.com/">Ferrari</a> logos are registered trademarks. Use of the logo here does not imply endorsement of the organization by this site.</p>
 		</footer>
 		<script src="js/json.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 		<script src="js/main.js" type="text/javascript"></script>
+
 	</body>
 </html>
 

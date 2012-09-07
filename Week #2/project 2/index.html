@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
 	
-	<title>Mobile Site Template</title>
+	<title>Car Tag</title>
 	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
@@ -24,25 +24,85 @@
 
 </head>
 <body>
-	<div data-role="page">
-		<div data-role="header" data-position="fixed">
+<!-- 	Home Page -->
+	<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Car Tag</h1>
 		</div>
-		<div data-role="content">
-		
+		<div aria-hidden="true">​
+			<div class="ui-btn-inner ui-li">
+				<ul data-role="listview" data-dividertheme="d">
+					<li><a  href="#garage" data-corners="false" data-shadow="false" data-icon="arrow-r" data-iconpos="right">My Garage</a>
+					</li>
+					<li><a  href="#garage" data-corners="false" data-shadow="false" data-icon="arrow-r" data-iconpos="right">My Garage</a>
+					</li>
+					<li><a  href="#garage" data-corners="false" data-shadow="false" data-icon="arrow-r" data-iconpos="right">My Garage</a>
+					</li>
+					<li><a  href="#garage" data-corners="false" data-shadow="false" data-icon="arrow-r" data-iconpos="right">My Garage</a>
+					</li>
+				</ul>
+
+
+			</div>
 		</div>
-		<div data-role="footer" data-position="fixed">
-			<h4>nav</h4>
+		<div data-role="footer" data-position="fixed" data-id="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#form">New Car</a></li>
+					<li><a href="#garage">My Garage</a></li>
+					<li><a href="#friend">Friends</a></li>
+					<li><a href="#near">Nearby</a></li>
+				</ul>
+			</div>
 		</div>
 	
 	</div>
-
 	
+<!-- 	Garage Page -->
+	<div data-role="page" id="garage" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Garage</h1>
+		</div>
+		<div data-role="content">
+			<div class="ui-btn-inner ui-li">
+				<a href="#garage" class="ui-link-inherit">My Garage</a>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-id="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#form">New Car</a></li>
+					<li><a href="#garage" class="ui-btn-active">My Garage</a></li>
+					<li><a href="#friend">Friends</a></li>
+					<li><a href="#near">Nearby</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	
+	<div data-role="page" id="friend">
+		<div data-role="collapsible-set">
+		    <div data-role="listview" data-inset="true" data-filter="true">
+		        <div data-role="collapsible" data-corners="false">
+		            <h3>dog</h3>
+		            <p>Woof!</p>
+		            <li>jumping fdas fda</li>
+		            <li>jumping fdas fda</li>
+		            <li>jumping fdas fda</li>
+		            <li>jumping fdas fda</li>
+		        </div>
+		        <div data-role="collapsible" data-corners="false">
+		            <h3>Cat</h3>
+		            <p>Meow!</p>
+		        </div>
+		    </div>
+		</div>
+	</div>
 
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
-	<script src="js/json.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
