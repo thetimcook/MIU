@@ -58,6 +58,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		return holdValues;
 	}
 	
+/*
 	function toggleControls(n) {
 		switch(n) {
 			case "on":
@@ -78,6 +79,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
+*/
 	
 	function storeData(key) {
 		if (!key) {
@@ -104,7 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function getData(){
-		toggleControls("on");
+/* 		toggleControls("on"); */
 		if(localStorage.length === 0) {
 			alert("There are no cars in your Garage, so I went ahead and added a couple!");
 			autoFill();
@@ -114,7 +116,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		var callDiv = ge('cars');
 		var makeList = document.createElement('div');
 		callDiv.appendChild(makeList);
-		callDiv.setAttribute("data-role", "content");
 		makeList.setAttribute("data-role", "collapsible-set");
 		var makeFilter = document.createElement('div');
 		makeList.appendChild(makeFilter);
@@ -132,10 +133,14 @@ window.addEventListener("DOMContentLoaded", function(){
 			//Convert the string from local storage value back to an object.
 			var obj = JSON.parse(value);
 			/* getCar(obj.make[1], makeSubList); */
+			
+			/* makeCar.appendChild(model[1]); */
 			for (var n in obj) {
 				var makeCar =document.createElement('h3');
 				makeLi.appendChild(makeCar);
-				
+				var makeTitle = obj[0][1]+" "+obj[1][1];
+				makeCar.appendChild(makeTitle);
+			
 				var makeSubLi = document.createElement('p');
 				makeLi.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
@@ -160,12 +165,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		imageLi.appendChild(make);
 		imageLi.appendChild(model);
 
+
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ logo +".jpg");
 		imageLi.appendChild(newImg);
 
 	}	
-*/	
+	
+*/
 	
 	//Auto fill data
 

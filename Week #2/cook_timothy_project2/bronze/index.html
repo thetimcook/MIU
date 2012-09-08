@@ -23,13 +23,13 @@
 		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="js/libs/modernizr.custom.min.js"></script>
 	</head>
-	<body>
+	<body data-ajax="false">
 		<div data-role="page">
 			<div data-role="header" data-theme="b">
 				<h1>Car Tag</h1>
-				<a id="search" href="additem.html/#search" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
+				<a id="tag" href="additem.html" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
 			</div>
-			<div id="feature">
+			<div id="feature" style="background-image:url(images/Car1Motion.jpg)">
 				<h2>Collect and share amazing cars you find on your travels</h2>
 				
 				<a href="additem.html" data-role="button" style="width:90%; margin: 0px auto 8px auto " data-theme="b">TAG A CAR</a>
@@ -52,7 +52,24 @@
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>My Garage</h1>
-				<a id="search" href="additem.html/#search" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
+				<a id="tag" href="additem.html" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
+			</div>
+			<div data-role="content" data-theme="b">
+				<div class="ui-grid-c" style="text-align:center">
+					<div class="ui-block-a">Block A</div>
+					<div class="ui-block-b">
+						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:2px">328</span>
+						<p style="padding:8px">Cars</p>
+					</div>
+					<div class="ui-block-c">
+						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:2px">32</span>
+						<p style="padding:8px">Friends</p>
+					</div>	
+					<div class="ui-block-d">
+						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:2px">8</span>
+						<p style="padding:8px">Follower</p>
+					</div>	
+				</div><!-- /grid-b -->
 			</div>
 		
 		
@@ -63,7 +80,7 @@
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>Friends</h1>
-				<a id="search" href="additem.html/#search" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
+				<a id="tag" href="additem.html" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
 			</div>
 		
 		
@@ -74,10 +91,11 @@
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>Nearby Cars</h1>
-				<a id="search" href="additem.html/#search" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
+				<a id="tag" href="additem.html" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
 			</div>
-		
-		
+			<div data-role="content" style="background-image:url(images/2249882184_ac02525cfc.jpg); background-size: cover; margin: 12px auto 8px auto; width: 90%; padding:80px 12px 12px 12px; box-shadow: 0px 0px 4px black">
+				<h2>Sorry, but this page needs a little work.</h2>
+			</div>
 		</div>
 		
 		
