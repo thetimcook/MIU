@@ -113,39 +113,36 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 		//Write Data from local storage to the browser.
-		var callDiv = ge('cars');
-		var makeList = document.createElement('div');
-		callDiv.appendChild(makeList);
-		makeList.setAttribute("data-role", "collapsible-set");
-		var makeFilter = document.createElement('div');
-		makeList.appendChild(makeFilter);
-		makeFilter.setAttribute("data-role", "listview");
-		makeFilter.setAttribute("data-inset", "true");
-		makeFilter.setAttribute("data-filter", "true");
-		ge('cars').style.display = "block";
+		var makeDiv = ge('cars');
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		makeList.setAttribute("data-role", "listview");
+		makeList.setAttribute("data-filter", "true");
+		makeList.setAttribute("data-inset", "false");
+/* 		document.body.appendChild(makeDiv);
+		ge('cars').style.display = "block"; */
 		for (var i=0, len=localStorage.length; i<len; i++){
-			var makeLi = document.createElement('div');
-			var linksLi = document.createElement('a');
-			makeLi.setAttribute("data-role", "collapsible");
-			makeList.appendChild(makeLi);
+			var linksLi = document.createElement('li');
+			var makeSubList = document.createElement('li');
+			makeList.appendChild(makeSubList);
+			makeSubList.setAttribute("data-role", "collapsible");
+/*
+			makeLi.style.padding = "0px 0px 12px 0px"
+			makeLi.style.margin = "0px 0px 8px 0px";
+			makeLi.style.borderBottom = "1px white solid"
+*/	
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//Convert the string from local storage value back to an object.
 			var obj = JSON.parse(value);
-			/* getCar(obj.make[1], makeSubList); */
 			
-			/* makeCar.appendChild(model[1]); */
+			getLogo(obj.make[1], makeSubList);
 			for (var n in obj) {
-				var makeCar =document.createElement('h3');
-				makeLi.appendChild(makeCar);
-				var makeTitle = obj[0][1]+" "+obj[1][1];
-				makeCar.appendChild(makeTitle);
-			
 				var makeSubLi = document.createElement('p');
-				makeLi.appendChild(makeSubLi);
+				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
-				makeLi.appendChild(linksLi);
+				makeSubList.appendChild(linksLi);
 			}
 			var breakTag = document.createElement('br');
 			linksLi.appendChild(breakTag);
@@ -155,24 +152,24 @@ window.addEventListener("DOMContentLoaded", function(){
 			var breakTag = document.createElement('br');
 			linksLi.appendChild(breakTag);
 		}
+/*
+		makeDiv.style.margin		= "0px 0px 8px 0px";
+		makeList.style.fontSize		= "10pt";
+		makeList.style.margin		= "8px 8px 0px 8px";
+		makeList.style.background	= "rgba(109, 174, 218, 1.0)";
+		makeList.style.padding		= "8px 8px 12px 8px";
+*/
 	}
 	//Get logo for car make.
 
-/*
-	function getCar(make, makeSubList) {
+
+	function getLogo(logo, makeSubList) {
 		var imageLi = document.createElement('h3');
 		makeSubList.appendChild(imageLi);
-		imageLi.appendChild(make);
-		imageLi.appendChild(model);
-
-
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ logo +".jpg");
 		imageLi.appendChild(newImg);
-
-	}	
-	
-*/
+	}
 	
 	//Auto fill data
 
@@ -188,13 +185,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	function makeItemLinks(key, linksLi) {
 		//add edit single item link
 		var editLink = document.createElement('a');
-		editLink.style.border		= "1px rgba(47, 126, 178, 1.0) solid";
-		editLink.style.color		= "rgba(47, 126, 178, 1.0)";
-		editLink.style.fontWeight	= "bold";
-		editLink.style.padding		= "4px 27px 4px 27px";
-		editLink.style.background	= "#fff";
-		editLink.style.margin		= "8px 29px 8px 7px";
-		editLink.href = "#";
+		deleteLink.setAttribute("data-role", "button");
+		deleteLink.setAttribute("data-icon", "gear");
+		editLink.href = "additem.html#";
 		editLink.key = key;
 		var editText = "Edit Car";
 		editLink.addEventListener("click", editCar);
@@ -208,12 +201,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		//add delete single item link
 		var deleteLink = document.createElement('a');
-		deleteLink.style.border		= "1px rgba(47, 126, 178, 1.0) solid";
-		deleteLink.style.color		= "rgba(47, 126, 178, 1.0)";
-		deleteLink.style.fontWeight = "bold";
-		deleteLink.style.padding	= "4px 20px 4px 20px";
-		deleteLink.style.background = "#fff";
-		deleteLink.style.margin		= "8px 0px 8px 29px";
+		deleteLink.setAttribute("data-role", "button");
+		deleteLink.setAttribute("data-icon", "delete");
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Car";

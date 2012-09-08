@@ -28,6 +28,7 @@
 	<body data-ajax="false">
 		<div data-role="page">
 			<div data-role="header" data-position="fixed" data-theme="b">
+				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1 id="headerBar">Create new tag</h1>
 			</div>
 			<nav>
@@ -103,7 +104,7 @@
 			</nav>	
 		
 		
-			<div id="cars" data-role="content">
+			<div id="cars" data-role="collapsible-set">
 <!--
 				<div data-role="collapsible-set">
 					<div data-role="listview" data-inset="true" data-filter="true">

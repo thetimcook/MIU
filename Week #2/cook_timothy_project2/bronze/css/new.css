@@ -79,11 +79,6 @@ input#submit {
 #errors {
 	color: red;
 }
-img {
-	text-align: center;
-	max-height: 50px;
-	max-width: 284px;
-}
 #feature {
 	background-size: cover;
 	margin: -17px auto 8px auto;
