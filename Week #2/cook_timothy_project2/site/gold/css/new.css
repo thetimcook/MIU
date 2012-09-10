@@ -34,29 +34,6 @@ header{
 	padding: 0px 0px 0px 0px;
 	width: 100%;
 }
-#search {
-	width: 95%;
-	margin: 4px;
-}
-header > #search {
-	font-family: modernpics;
-	font-size: 28px;
-	background: white;
-	float: right;
-	margin: -40px 12px 4px auto;
-	border: 1px rgba(47, 126, 178, 1.0) solid;
-	border-radius: 8px;
-	padding: auto;
-	width: 28px;
-	height: 28px;
-}
-h1 {
-	margin: 12px auto 12px auto;
-	text-align: center;
-	color: #f2f2f2;
-	text-shadow: 0px -1.6px 1px rgba(0,0,0,0.5);
-	width: 200px;
-}
 h2 {
 	color: white;
 	text-align: center;
@@ -69,25 +46,6 @@ nav {
 	color: rgba(47, 126, 178, 1.0);
 	text-align: center;
 	padding: 2px;
-}
-a#tagcar {
-	font-size: 24pt;
-	font-weight: bold;
-	color: rgba(47, 126, 178, 1.0);
-}
-#tag {
-	background: white;
-	border-radius: 8px;
-	border: 1px rgba(47, 126, 178, 1.0) solid;
-	box-shadow: 0px 4px 0px 0px rgba(47, 126, 178, 1.0),
-				0px 3px 6px black;
-	text-align: center;
-	margin: 8px auto 8px auto;
-	width: 280px;
-}
-a {
-	color: rgba(47, 126, 178, 1.0);
-	text-decoration: none;
 }
 footer{
 	text-align: center;
@@ -121,33 +79,14 @@ input#submit {
 #errors {
 	color: red;
 }
-img {
-	text-align: center;
-	max-height: 50px;
-	max-width: 284px;
-}
 #feature {
-	background-image: url("images/Car1Motion.jpg");
 	background-size: cover;
 	margin: -17px auto 8px auto;
 	width: 95%;
 	padding-bottom: 4px;
 	box-shadow: 0px 0px 4px black;
 }
-li {
-	width: 100%;
-	margin: 0px;
-	height: 40px;
-	border-top: 2px gray;
-	border-bottom: 2px white;
-	background: -webkit-linear-gradient(#ffffff 0%, #adadad 100%);
-}
-li > a {
-	margin: auto 12px auto 12px;
-	padding: 2px;
-	font-size: 18px;
-	text-align: left;
-}
+
 
 
 

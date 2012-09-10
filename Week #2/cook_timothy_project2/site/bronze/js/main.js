@@ -1,7 +1,7 @@
 /*	main.js
 	Timothy Cook
-	Project 4
-	VFW Full Sail
+	Project 2
+	MiU Full Sail
 */
 
 
@@ -58,6 +58,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		return holdValues;
 	}
 	
+/*
 	function toggleControls(n) {
 		switch(n) {
 			case "on":
@@ -78,6 +79,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
+*/
 	
 	function storeData(key) {
 		if (!key) {
@@ -104,46 +106,39 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function getData(){
-		toggleControls("on");
+/* 		toggleControls("on"); */
 		if(localStorage.length === 0) {
 			alert("There are no cars in your Garage, so I went ahead and added a couple!");
 			autoFill();
 		}
-		//Make search bar
-		var searchBar = ge("searchbar");
-		var makeInput = document.createElement('input');
-		searchBar.appendChild(makeInput);
-		makeInput.setAttribute("name", "search");
-		makeInput.setAttribute("type", "search");
-		makeInput.setAttribute("id", "search");
-		makeInput.setAttribute("title", "Search");
-		makeInput.setAttribute("placeholder", "Search");
-
-		
-		
 		
 		//Write Data from local storage to the browser.
 		var makeDiv = ge('cars');
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
-		ge('cars').style.display = "block";
+		makeList.setAttribute("data-role", "listview");
+		makeList.setAttribute("data-filter", "true");
+		makeList.setAttribute("data-inset", "false");
+/* 		document.body.appendChild(makeDiv);
+		ge('cars').style.display = "block"; */
 		for (var i=0, len=localStorage.length; i<len; i++){
-			var makeLi = document.createElement('li');
 			var linksLi = document.createElement('li');
-			makeList.appendChild(makeLi);
+			var makeSubList = document.createElement('li');
+			makeList.appendChild(makeSubList);
+			makeSubList.setAttribute("data-role", "collapsible");
+/*
 			makeLi.style.padding = "0px 0px 12px 0px"
 			makeLi.style.margin = "0px 0px 8px 0px";
 			makeLi.style.borderBottom = "1px white solid"
+*/	
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//Convert the string from local storage value back to an object.
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeLi.appendChild(makeSubList);
+			
 			getLogo(obj.make[1], makeSubList);
 			for (var n in obj) {
-				var makeSubLi = document.createElement('li');
+				var makeSubLi = document.createElement('p');
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
@@ -157,23 +152,26 @@ window.addEventListener("DOMContentLoaded", function(){
 			var breakTag = document.createElement('br');
 			linksLi.appendChild(breakTag);
 		}
+/*
 		makeDiv.style.margin		= "0px 0px 8px 0px";
 		makeList.style.fontSize		= "10pt";
 		makeList.style.margin		= "8px 8px 0px 8px";
 		makeList.style.background	= "rgba(109, 174, 218, 1.0)";
 		makeList.style.padding		= "8px 8px 12px 8px";
+*/
 	}
 	//Get logo for car make.
 
 
+
 	function getLogo(logo, makeSubList) {
-		var imageLi = document.createElement('li');
+		var imageLi = document.createElement('h3');
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "images/"+ logo +".jpg");
 		imageLi.appendChild(newImg);
-	}	
-	
+	}
+
 	
 	//Auto fill data
 
@@ -189,13 +187,11 @@ window.addEventListener("DOMContentLoaded", function(){
 	function makeItemLinks(key, linksLi) {
 		//add edit single item link
 		var editLink = document.createElement('a');
-		editLink.style.border		= "1px rgba(47, 126, 178, 1.0) solid";
-		editLink.style.color		= "rgba(47, 126, 178, 1.0)";
-		editLink.style.fontWeight	= "bold";
-		editLink.style.padding		= "4px 27px 4px 27px";
-		editLink.style.background	= "#fff";
-		editLink.style.margin		= "8px 29px 8px 7px";
-		editLink.href = "#";
+		editLink.setAttribute("data-role", "button");
+		editLink.setAttribute("data-icon", "gear");
+		editLink.setAttribute("data-inline", "true");
+		editLink.setAttribute("data-theme", "b");
+		editLink.href = "additem.html#";
 		editLink.key = key;
 		var editText = "Edit Car";
 		editLink.addEventListener("click", editCar);
@@ -209,57 +205,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		//add delete single item link
 		var deleteLink = document.createElement('a');
-		deleteLink.style.border		= "1px rgba(47, 126, 178, 1.0) solid";
-		deleteLink.style.color		= "rgba(47, 126, 178, 1.0)";
-		deleteLink.style.fontWeight = "bold";
-		deleteLink.style.padding	= "4px 20px 4px 20px";
-		deleteLink.style.background = "#fff";
-		deleteLink.style.margin		= "8px 0px 8px 29px";
-		deleteLink.href = "#";
+		deleteLink.setAttribute("data-role", "button");
+		deleteLink.setAttribute("data-icon", "delete");
+		deleteLink.setAttribute("data-inline", "true");
+		deleteLink.setAttribute("data-theme", "b");
+		deleteLink.href = "#garage";
 		deleteLink.key = key;
 		var deleteText = "Delete Car";
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
-
-	//Search function
-
-
-/*
-	$(document).ready(function () {
-		$('#search').keyup(function(event) {
-			var search_text = $('#search').val();
-			var rg = new RegExp(search_text,'i');
-			$('#cars .cars .make').each(function(){
-	 			if($.trim(ge(this).html()).search(rg) == -1) {
-					$(this).parent().css('display', 'none');
-	 				$(this).css('display', 'none');
-					$(this).next().css('display', 'none');
-					$(this).next().next().css('display', 'none');
-				}	
-				else {
-					$(this).parent().css('display', '');
-					$(this).css('display', '');
-					$(this).next().css('display', '');
-					$(this).next().next().css('display', '');
-				}
-			});
-		});
-	});
-	 
-	$('#search_clear').click(function() {
-		$('#search').val('');	
-	 
-		$('#cars .cars .make').each(function(){
-			$(this).parent().css('display', '');
-			$(this).css('display', '');
-			$(this).next().css('display', '');
-			$(this).next().next().css('display', '');
-		});
-	});
-*/
-
 
 
 	
@@ -385,13 +341,21 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Set link and submit click events
 	
+
 	var displayLink = ge('displayLink');
 	displayLink.addEventListener("click", getData);
+
+/*
+	$("#garage").ready(function(){
+	getData();
+    alert('Your DOM is ready.Now below this u can run all ur javascript');
+    });
+*/
+	
 	var clearLink = ge('clear');
 	clearLink.addEventListener("click", clearLocal);
-	var save = document.getElementById('submit');
+	var save = ge('submit');
 	save.addEventListener("click", validate);
-	
 	
 });
 
