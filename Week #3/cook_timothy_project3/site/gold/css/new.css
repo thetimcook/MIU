@@ -52,29 +52,9 @@ footer{
 	padding: 4px;
 	margin-top: 8px;
 }
-fieldset{
-	width: 280px;
-	margin: 12px auto 12px auto;
-	border-style: none;
-	background: rgba(109, 174, 218, 1.0);
-}
 ul {
 	list-style-type: none;
 	padding: 0px;
-}
-input#submit {
-	color: white;
-	font-weight: bold;
-	background: -webkit-linear-gradient(rgba(98, 173, 217, 1.0) 0%, rgba(47, 126, 178, 1.0) 100%);
-	border: 1px solid rgba(47, 126, 178, 1.0);
-	font-size: large;
-	text-fill-color: #fff;
-	display: block;
-	text-align: center;
-	margin: 0px auto 0px auto;
-	width: 298px;
-	height: 42px;
-	border-radius: 0px;
 }
 #errors {
 	color: red;
