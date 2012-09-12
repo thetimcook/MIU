@@ -1,11 +1,4 @@
-html {
-	background-image: url("images/bg3.jpg");
-	width: 100%;
-}
-@font-face {
-	font-family: modernpics;
-	src: url('fonts/modernpics.otf');
-}
+
 body {
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
@@ -66,7 +59,14 @@ ul {
 	padding-bottom: 4px;
 	box-shadow: 0px 0px 4px black;
 }
-
+label.error {
+	display: block;
+	margin: 10px 0px;
+	color: red;
+}
+#tagerrorslink {
+	display: none;
+}
 
 
 

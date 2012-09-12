@@ -24,7 +24,7 @@
 		<script src="js/libs/modernizr.custom.min.js"></script>
 	</head>
 	<body>
-		<div data-role="page">
+		<div data-role="page" id="home">
 			<div data-role="header" data-theme="b" data-id="main">
 				<h1>Car Tag</h1>
 				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
@@ -129,18 +129,19 @@
 			
 			<div data-role="content">
 			
-				<form action="" method="post" id="cartagform">
+				<form action="" method="post" id="addItem">
 					<div data-role="fieldcontain">
-						<label for="make">Make:</label>
-						<input type="text" name="make" id="make" placeholder="Porche, Audi, Cadillac, etc." data-mini="true" />
+						<p>*fields are required.</p>
+						<label for="make">*Make:</label>
+						<input type="text" name="make" id="make" placeholder="Porche, Audi, Cadillac, etc." data-mini="true" class="required" />
 					</div>
 					<div data-role="fieldcontain">	
-						<label for="make">Model:</label>
-						<input type="text" name="model" id="model" placeholder="A6, A9, R8, etc." data-mini="true"  />
+						<label for="make">*Model:</label>
+						<input type="text" name="model" id="model" placeholder="A6, A9, R8, etc." data-mini="true" class="required"/>
 					</div>
 					<div data-role="fieldcontain">	
-						<label for="year">Year:</label>
-						<select name="year" id="year" data-mini="true">
+						<label for="year">*Year:</label>
+						<select name="year" id="year" data-mini="true" class="required">
 							<option value="2012">2012</option>
 							<option value="2011">2011</option>
 							<option value="2010">2010</option>
@@ -157,7 +158,7 @@
 							<option value="1999">1999</option>
 							<option value="1998">1998</option>
 							<option value="1997">1997</option>
-							<option value="1996">1996</option>							
+							<option value="1996">1996</option>
 						</select>					
 					</div>
 					<div data-role="fieldcontain">	
@@ -175,53 +176,68 @@
 						</select>					
 					</div>
 					<div data-role="fieldcontain">
-						<fieldset data-role="controlgroup" data-mini="true">
+						<fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
 							<legend>Condition:</legend>
-							<input type="radio"	value="Amazing" name="condition" id="condition-1" />
+							<input checked="true" type="radio"	value="Amazing" name="condition" id="condition-1"  />
 							<label for="condition-1">Amazing</label>
 							<input type="radio"	value="Not" name="condition" id="condition-2" />
 							<label for="condition-2">Not so Amazing</label>
-							<input type="radio"	value="Ok" name="condition" id="condition-3" />
-							<label for="condition-3">Ok</label>
 							<input type="radio"	value="Rubbish" name="condition" id="condition-4" />
 							<label for="condition-4">Rubbish</label>	
 						</fieldset>
 					</div>
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-mini="true">
-							<legend>Condition:</legend>
-							<input type="checkbox"	value="Amazing" name="condition" id="condition-1" />
-							<label for="condition-1">Amazing</label>
-							<input type="checkbox"	value="Not" name="condition" id="condition-2" />
-							<label for="condition-2">Not so Amazing</label>
-							<input type="checkbox"	value="Ok" name="condition" id="condition-3" />
-							<label for="condition-3">Ok</label>	
+							<legend>What makes it stand out?</legend>
+							<input type="checkbox"	value="custom" name="stand" id="stand-1" />
+							<label for="stand-1">Custom paint or decals</label>
+							<input type="checkbox"	value="sound" name="stand" id="stand-2" />
+							<label for="stand-2">Top notch sound system</label>
+							<input type="checkbox"	value="fast" name="stand" id="stand-3" />
+							<label for="stand-3">Crazy fast engine</label>	
+							<input type="checkbox"	value="rims" name="stand" id="stand-4" />
+							<label for="stand-4">Nice rims</label>	
 						</fieldset>
 					</div>
 					<div data-role="fieldcontain">
-						<div class="ui-glid-b">
-							<div class="ui-block-a" style="width:270px">
-								<input type="submit" data-theme="b" value="Tag Car"/>
-							</div>
-							<div class="ui-block-c" style="padding:4px 4px 4px 12px">
-								<input type="reset" data-mini="true" data-theme="a" data-inline="true" value="Reset"/>
-							</div>
-						</div>
+						<label for="discribe">Why is this car worth tagging?</label>
+						<textarea name="discribe" id="discribe" placeholder="I like it because..." data-mini="true"></textarea>
 					</div>
 					
 					
+					<div data-role="fieldcontain">
+						<fieldset class="ui-grid-a" >
+							<div class="ui-block-a" style="width:75%; padding:2px">
+								<input type="submit" data-theme="b" value="Tag Car"/>
+							</div>
+							<div class="ui-block-b" style="width:25%; padding:6px 6px 6px 10px ">
+								<input type="reset" data-mini="true" data-theme="a" value="Reset"/>
+							</div>
+						</fieldset>
+					</div>
+					
+					<a href="#tagerrors" id="tagerrorslink" data-rel="dialog" data-transition="slideup">Open Errors</a>
 				</form>
 			</div>
-			
-			
 		</div>
 		
+		<div data-role="dialog" id="tagerrors">
+			<div data-role="header" data-positio="fixed">
+				<h1>Missing Fields</h1>
+			</div>
+			<div data-role="content">
+				<ul>
+					<li> Test </li>
+				</ul>
+			</div>
+		</div>
 		
 		
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+		<script src="js/libs/jquery.validate.min.js" type="text/javascript"></script>
 		<script src="js/json.js" type="text/javascript"></script>
-		<script src="js/main.js" type="text/javascript"></script>
+		<script src="js/validate.js" type="text/javascript"></script>
 	</body>
 </html>
 
