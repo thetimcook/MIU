@@ -29,26 +29,27 @@ $('#home').on('pageinit', function(){
 		
 $('#tagcar').on('pageinit', function(){
 
-		var tagForm = $('#addItem'),
-			tagerrorslink = $('#tagerrorslink')
-		;
+		var tagForm = $('#addItem');
+		
 		tagForm.validate({
 			invalidHandler: function(form, validator) {
-				tagerrorslink.click();
-				for(var key in validator.submited){
-					var label = $('label[for^="'+ key +'"]');
-					
-				}
+			
+				
 			},
 			submitHandler: function() {
 				var data = tagForm.serializeArray();
 				storeData(data);
+				/* window.location.reload(); */
+
 		}
+		
+		
 	});
-	
-	//any other code needed for addItem page goes here
-	
+
 });
+
+
+
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
@@ -58,10 +59,21 @@ var autofillData = function (){
 
 var getData = function(){
 
+
 };
 
-var storeData = function(data){
-	console.log(data);
+var storeData = function(data){ 
+	var formDate = $('date');
+	var id = JSON.stringify(data[8]);
+	
+	
+	localStorage.setItem(id, JSON.stringify(data));
+
+	
+	
+	alert("Car Tagged!");
+	
+	
 }; 
 
 var	deleteItem = function (){
@@ -71,15 +83,4 @@ var	deleteItem = function (){
 var clearLocal = function(){
 
 };
-
-
-
-
-
-
-
-
-
-
-
 

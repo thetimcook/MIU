@@ -25,7 +25,7 @@
 	</head>
 	<body>
 		<div data-role="page" id="home">
-			<div data-role="header" data-theme="b" data-id="main">
+			<div data-role="header" data-theme="b" data-id="header">
 				<h1>Car Tag</h1>
 				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
 			</div>
@@ -50,7 +50,7 @@
 		
 		
 		<div data-role="page" id="account">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>My Garage</h1>
 				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
@@ -74,17 +74,22 @@
 					</div>	
 				</div><!-- /grid-b -->
 			</div>
-		
+			<div data-role="content">
+				<ul data-role="listview" data-filter="true">
+				
+				</ul>
+			</div>
 		
 		</div>
 		
 		
 		<div data-role="page" id="friends">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>Friends</h1>
 				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
 			</div>
+			<div data-role="content">
 				<ul data-role="listview" data-filter="true">
 					<li data-role="list-divider">B</li>
 						<li><a id="142" href="#142">Bob Stevens</a></li>
@@ -105,12 +110,13 @@
 					<li data-role="list-divider">W</li>
 						<li><a id="341" href="#341">Will Read</a></li>
 				</ul>
+			</div>
 		
 		</div>
 		
 		
 		<div data-role="page" id="near">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>Nearby Cars</h1>
 				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
@@ -121,10 +127,10 @@
 		</div>
 		
 		<div data-role="page" id="tagcar">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>Tag A Car</h1>
-				<a id="tag" href="#search" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
+				<a id="tag" href="#carlist" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
 			</div>			
 			
 			<div data-role="content">
@@ -133,7 +139,7 @@
 					<div data-role="fieldcontain">
 						<p>*fields are required.</p>
 						<label for="make">*Make:</label>
-						<input type="text" name="make" id="make" placeholder="Porche, Audi, Cadillac, etc." data-mini="true" class="required" />
+						<input type="text" name="make" id="make" placeholder="Porsche, Audi, Cadillac, etc." data-mini="true" class="required" />
 					</div>
 					<div data-role="fieldcontain">	
 						<label for="make">*Model:</label>
@@ -172,7 +178,8 @@
 							<option value="red">Red</option>
 							<option value="green">Green</option>
 							<option value="yellow">Yellow</option>
-							<option value="orange">Orange</option>						
+							<option value="orange">Orange</option>
+									
 						</select>					
 					</div>
 					<div data-role="fieldcontain">
@@ -189,26 +196,33 @@
 					<div data-role="fieldcontain">
 						<fieldset data-role="controlgroup" data-mini="true">
 							<legend>What makes it stand out?</legend>
-							<input type="checkbox"	value="custom" name="stand" id="stand-1" />
-							<label for="stand-1">Custom paint or decals</label>
-							<input type="checkbox"	value="sound" name="stand" id="stand-2" />
-							<label for="stand-2">Top notch sound system</label>
-							<input type="checkbox"	value="fast" name="stand" id="stand-3" />
-							<label for="stand-3">Crazy fast engine</label>	
-							<input type="checkbox"	value="rims" name="stand" id="stand-4" />
-							<label for="stand-4">Nice rims</label>	
+							<input type="checkbox"	value="custom" name="display" id="display-1" />
+							<label for="display-1">Custom paint or decals</label>
+							<input type="checkbox"	value="sound" name="display" id="display-2" />
+							<label for="display-2">Top notch sound system</label>
+							<input type="checkbox"	value="fast" name="display" id="display-3" />
+							<label for="display-3">Crazy fast engine</label>	
+							<input type="checkbox"	value="rims" name="display" id="display-4" />
+							<label for="display-4">Nice rims</label>	
 						</fieldset>
 					</div>
 					<div data-role="fieldcontain">
-						<label for="discribe">Why is this car worth tagging?</label>
-						<textarea name="discribe" id="discribe" placeholder="I like it because..." data-mini="true"></textarea>
+						<label for="describe">Why is this car worth tagging?</label>
+						<textarea name="describe" id="describe" placeholder="I like it because..." data-mini="true"></textarea>
 					</div>
-					
+					<div data-role="fieldcontain" style="display:none">
+						<label for="date">Current Date</label>
+						<input type="text" id="date" name="date">
+						<script type="text/javascript">
+						  document.getElementById('date').value = Date();
+						</script>
+						
+					</div>
 					
 					<div data-role="fieldcontain">
 						<fieldset class="ui-grid-a" >
 							<div class="ui-block-a" style="width:75%; padding:2px">
-								<input type="submit" data-theme="b" value="Tag Car"/>
+								<input id="submit" type="submit" data-theme="b" value="Tag Car" />
 							</div>
 							<div class="ui-block-b" style="width:25%; padding:6px 6px 6px 10px ">
 								<input type="reset" data-mini="true" data-theme="a" value="Reset"/>
@@ -216,19 +230,22 @@
 						</fieldset>
 					</div>
 					
-					<a href="#tagerrors" id="tagerrorslink" data-rel="dialog" data-transition="slideup">Open Errors</a>
 				</form>
 			</div>
 		</div>
 		
-		<div data-role="dialog" id="tagerrors">
-			<div data-role="header" data-positio="fixed">
-				<h1>Missing Fields</h1>
+		<div data-role="page" id="carlist">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
+				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
+				<h1>All Cars</h1>
+				<a id="clear" href="#cars" data-role="button" data-inline="true" data-mini="true" data-icon="minus" data-iconpos="notext" class="ui-btn-right">Clear</a>
 			</div>
-			<div data-role="content">
-				<ul>
-					<li> Test </li>
-				</ul>
+		
+			
+			<div data-role="container"
+				<div id="cars" data-role="collapsible-set">
+				
+				</div>
 			</div>
 		</div>
 		
