@@ -80,8 +80,8 @@ function storeData(key) {
 		car.model		= ["Model: ", ge('model').value];
 		car.year		= ["Year: ", ge('year').value];
 		car.color 		= ["Color: ", ge('color').value];
-		car.display		= ["What makes it stand out? ", display];
 		car.condition	= ["Condition: ", condition];
+		car.display		= ["What makes it stand out? ", display];
 		car.describe	= ["Describe the car in your own words. ", ge('describe').value];
 	// Save data to local storage: Use Strinify to convert our object to a sting.
 	localStorage.setItem(id, JSON.stringify(car));
@@ -171,7 +171,7 @@ function editCar() {
 
 
 
-$('#carlist').on('pageinit', function(){
+$('#carlist').on('pageinit', function(editCar){
 	
 	
 	function autoFill() {
@@ -207,8 +207,8 @@ $('#carlist').on('pageinit', function(){
 			var value = localStorage.getItem(key);
 			//Convert the string from local storage value back to an object.
 			var obj = JSON.parse(value);
-			
-			getLogo(obj.make[1], makeSubList);
+			console.log(obj.make);
+/* 			getLogo(obj.make[1], makeSubList); */
 			for (var n in obj) {
 				var makeSubLi = document.createElement('p');
 				makeSubList.appendChild(makeSubLi);
