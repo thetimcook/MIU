@@ -52,6 +52,11 @@ $('#tagcar').on('pageinit', function(){
 
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
+function ge(x){
+		var theElement = document.getElementById(x);
+		return theElement;
+};
+
 
 var autofillData = function (){
 	 
@@ -63,12 +68,12 @@ var getData = function(){
 };
 
 var storeData = function(data){ 
-	var formDate = $('date');
-	var id = JSON.stringify(data[8]);
-	
+	var formDate = ge('date').value;
+	var id = Date.parse(formDate);
+	/* var id = JSON.stringify(dateinfo); */
 	
 	localStorage.setItem(id, JSON.stringify(data));
-
+	alert(id);
 	
 	
 	alert("Car Tagged!");
