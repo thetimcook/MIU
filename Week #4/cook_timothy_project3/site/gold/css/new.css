@@ -1,4 +1,9 @@
 
+@font-face {
+	font-family: modernpics;
+	src: url('modernpics.otf');
+}
+
 body {
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
@@ -35,10 +40,9 @@ h2 {
 	font-weight: lighter;
 	text-shadow: 0px 1px 4px black;
 }
-nav {
-	color: rgba(47, 126, 178, 1.0);
-	text-align: center;
-	padding: 2px;
+#home, #carlist, #tagcar, #account, #near, #friends {
+	background: url("images/bg.jpg");
+	background-repeat: repeat-x;
 }
 #foot{
 	text-align: center;

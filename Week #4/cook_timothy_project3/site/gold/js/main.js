@@ -23,24 +23,23 @@ $('#tagcar').ready(function(){
 
 
 
-$('#home').on('pageinit', function(){
+$('#home').on('pageinit', function (){
 	//code needed for home page goes here
 });	
 		
-$('#tagcar').on('pageinit', function(){
+$('#tagcar').on('pageinit', function (){
 
 	var tagForm = $('#addItem');
 	
 	tagForm.validate({
-		invalidHandler: function(form, validator) {
+		invalidHandler: function (form, validator) {
 		
 			
 		},
-		submitHandler: function() {
+		submitHandler: function () {
 			var data = tagForm.serializeArray();
 			storeData(this.key);
 			window.location.reload();
-			
 		}
 	});	
 	
@@ -55,9 +54,9 @@ $('#tagcar').on('pageinit', function(){
 
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-function ge(x){
-		var theElement = document.getElementById(x);
-		return theElement;
+function ge(x) {
+	var theElement = document.getElementById(x);
+	return theElement;
 };
 var conditionValue,
 	holdValues

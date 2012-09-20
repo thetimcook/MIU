@@ -3,17 +3,17 @@
 <html>
 	<head>
 	
-		<meta charset="utf-8">
+		<meta charset="utf-8"/>
 			
-		<title>MiU Project #2</title>
+		<title>MiU Project #4</title>
 			
 		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
-		<meta name="HandheldFriendly" content="True">
+		<meta name="HandheldFriendly" content="True"/>
 		<meta name="MobileOptimized" content="320"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		
 		<!-- Mobile IE needs ClearType for smoothing fonts -->
-		<meta http-equiv="cleartype" content="on">
+		<meta http-equiv="cleartype" content="on"/>
 		
 		<!-- StyleSheets under here -->
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
@@ -25,9 +25,11 @@
 	</head>
 	<body>
 		<div data-role="page" id="home">
-			<div data-role="header" data-theme="b" data-id="header">
-				<h1>Car Tag</h1>
-				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
+			<div data-role="header" data-theme="b" data-id="main">
+				<div id="logo" style="padding: 0px 25%">
+					<img src="images/logo.png" style="height:40px; width:150px"/>
+				</div>
+				<a id="search" href="#carlist" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
 			</div>
 			<div id="feature" style="background-image:url(images/Car1Motion.jpg)">
 				<h2>Collect and share amazing cars you find on your travels</h2>
@@ -37,36 +39,46 @@
 			</div>
 			<div id="browse" data-role="content" style="margin: 16px 0px 0px 0px">
 				<ul data-role="listview">
-					<li><a id="account" href="#account" data-transition="slide">View My Garage</a></li>
-					<li><a id="friends" href="#friends" data-transition="slide">Visit Friends</a></li>
-					<li><a id="near" href="#near" data-transition="slide">Nearby Cars</a></li>
+					<li><a id="accountBtn" href="#account" data-transition="slide">View My Garage</a></li>
+					<li><a id="friendsBtn" href="#friends" data-transition="slide">Visit Friends</a></li>
+					<li><a id="nearBtn" href="#near" data-transition="slide">Nearby Cars</a></li>
 				</ul>
 			</div> 
 			<div id="foot">
 				<h3>a <a href="http://www.pixelplunder.com" data-ajax="false">pixel plunder</a> app</h3>
 				<h4><a href="http://tcook.me/miu/bronze/index.html" data-ajax="false">to bronze app</a></h4>
 			</div>
-		
+			
+			<div data-role="footer" data-position="fixed" data-id="main">
+				<div data-role="navbar" id="navbar" data-position="fixed" data-theme="a">
+					<ul>
+						<li><a href="#home" class="ui-btn-active ui-state-persist"><img src="images/home2x.png" height="20px" width="40px"/><br/>Home</a></li>
+						<li><a href="#account"><img src="images/account2x.png" height="20px" width="40px"/><br/>Account</a></li>
+						<li><a href="#friends"><img src="images/friends2x.png" height="20px" width="40px"/><br/>Friends</a></li>
+						<li><a href="#near"><img src="images/near2x.png" height="20px" width="40px"/><br/>Nearby</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
 		</div>
 		
 		
 		<div data-role="page" id="account">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>My Garage</h1>
-				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
+				<a id="edit" href="#editme" data-role="button" data-inline="true" data-mini="true" data-icon="gear" data-iconpos="notext" class="ui-btn-right">edit</a>
 			</div>
 			<div data-role="content" data-theme="a">
 				<div class="ui-grid-c" style="text-align:center; padding:8px" >
 					<div class="ui-block-a">
 						<img src="images/MyFace4.png" style="width:80px; height:80px"/>
 					</div>
-					<div class="ui-block-b" style="border-right:1px solid #777; padding:16px 0px 0px 0px; margin:8px 0px 0px 0px">
-						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:4px"> 328 </span>
+					<div class="ui-block-b" style="border-right:1px solid #777; padding:16px 0px 0px 16px; margin:8px 0px 0px 0px">
+						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:4px"> 20 </span>
 						<p style="padding:0px">Cars</p>
 					</div>
 					<div class="ui-block-c" style="border-right:1px solid #777; padding:16px 0px 0px 0px; margin:8px 0px 0px 0px">
-						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:4px"> 32 </span>
+						<span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="padding:4px"> 10 </span>
 						<p style="padding:0px">Friends</p>
 					</div>	
 					<div class="ui-block-d" style="padding:16px 0px 0px 0px; margin:8px 0px 0px 0px">
@@ -80,15 +92,35 @@
 				
 				</ul>
 			</div>
+			<div data-role="footer" data-position="fixed" data-id="main">
+				<div data-role="navbar" id="navbar" data-position="fixed" data-theme="a">
+					<ul>
+						<li><a href="#home"><img src="images/home2x.png" height="20px" width="40px"/><br/>Home</a></li>
+						<li><a href="#account" class="ui-btn-active ui-state-persist"><img src="images/account2x.png" height="20px" width="40px"/><br/>Account</a></li>
+						<li><a href="#friends"><img src="images/friends2x.png" height="20px" width="40px"/><br/>Friends</a></li>
+						<li><a href="#near"><img src="images/near2x.png" height="20px" width="40px"/><br/>Nearby</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
 		
 		</div>
 		
+		<div data-role="page" id="editme">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
+				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
+				<h1>Edit Account</h1>
+			</div>
+			<div data-role="content" style="background-image:url(images/2249882184_ac02525cfc.jpg); background-size: cover; margin: 12px auto 8px auto; width: 90%; padding:80px 12px 12px 12px; box-shadow: 0px 0px 4px black">
+				<h2>Sorry, but this page needs a little work.</h2>
+			</div>
+			
+		</div>
 		
 		<div data-role="page" id="friends">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>Friends</h1>
-				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
+				<a id="addfri" href="#addfri" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">add friend</a>
 			</div>
 			<div data-role="content">
 				<ul data-role="listview" data-filter="true">
@@ -112,27 +144,60 @@
 						<li><a id="341" href="#341">Will Read</a></li>
 				</ul>
 			</div>
+			<div data-role="footer" data-position="fixed" data-id="main">
+				<div data-role="navbar" id="navbar" data-position="fixed" data-theme="a">
+					<ul>
+						<li><a href="#home"><img src="images/home2x.png" height="20px" width="40px"/><br/>Home</a></li>
+						<li><a href="#account"><img src="images/account2x.png" height="20px" width="40px"/><br/>Account</a></li>
+						<li><a href="#friends" class="ui-btn-active ui-state-persist"><img src="images/friends2x.png" height="20px" width="40px"/><br/>Friends</a></li>
+						<li><a href="#near"><img src="images/near2x.png" height="20px" width="40px"/><br/>Nearby</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
 		
 		</div>
 		
-		
-		<div data-role="page" id="near">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
+		<div data-role="page" id="addfri">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
-				<h1>Nearby Cars</h1>
-				<a id="tag" href="#tagcar" data-role="button" data-inline="true" data-mini="true" data-icon="plus" data-iconpos="notext" class="ui-btn-right">tag</a>
+				<h1>Add A Friend</h1>
 			</div>
 			<div data-role="content" style="background-image:url(images/2249882184_ac02525cfc.jpg); background-size: cover; margin: 12px auto 8px auto; width: 90%; padding:80px 12px 12px 12px; box-shadow: 0px 0px 4px black">
 				<h2>Sorry, but this page needs a little work.</h2>
 			</div>
+			
+		</div>
+			
+			
+		</div>
+		
+		<div data-role="page" id="near">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
+				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
+				<h1>Nearby Cars</h1>
+			</div>
+			<div data-role="content" style="background-image:url(images/2249882184_ac02525cfc.jpg); background-size: cover; margin: 12px auto 8px auto; width: 90%; padding:80px 12px 12px 12px; box-shadow: 0px 0px 4px black">
+				<h2>Sorry, but this page needs a little work.</h2>
+			</div>
+			<div data-role="footer" data-position="fixed" data-id="main">
+				<div data-role="navbar" id="navbar" data-position="fixed" data-theme="a">
+					<ul>
+						<li><a href="#home"><img src="images/home2x.png" height="20px" width="40px"/><br/>Home</a></li>
+						<li><a href="#account"><img src="images/account2x.png" height="20px" width="40px"/><br/>Account</a></li>
+						<li><a href="#friends"><img src="images/friends2x.png" height="20px" width="40px"/><br/>Friends</a></li>
+						<li><a href="#near" class="ui-btn-active ui-state-persist"><img src="images/near2x.png" height="20px" width="40px"/><br/>Nearby</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
+			
 		</div>
 		
 		
 		<div data-role="page" id="tagcar">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1 id="headerBar">Tag A Car</h1>
-				<a id="list" href="#carlist" data-role="button" data-inline="true" data-mini="true" data-icon="search" data-iconpos="notext" class="ui-btn-right">search</a>
+				
 			</div>			
 			
 			<div data-role="content">
@@ -217,7 +282,7 @@
 					</div>
 					<div data-role="fieldcontain" style="display:none">
 						<label for="date">Current Date</label>
-						<input type="text" id="date" name="date">
+						<input type="text" id="date" name="date"/>
 						<script type="text/javascript">
 						  document.getElementById('date').value = Date();
 						</script>
@@ -236,17 +301,39 @@
 					
 				</form>
 			</div>
+			
+			<div data-role="footer" data-position="fixed" data-id="main">
+				<div data-role="navbar" data-position="fixed" data-theme="a">
+					<ul>
+						<li><a href="#home"><img src="images/home2x.png" height="20px" width="40px"/><br/>Home</a></li>
+						<li><a href="#account"><img src="images/account2x.png" height="20px" width="40px"/><br/>Account</a></li>
+						<li><a href="#friends"><img src="images/friends2x.png" height="20px" width="40px"/><br/>Friends</a></li>
+						<li><a href="#near"><img src="images/near2x.png" height="20px" width="40px"/><br/>Nearby</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
 		</div>
 		
 		<div data-role="page" id="carlist">
-			<div data-role="header" data-theme="b" data-position="fixed" data-id="header">
+			<div data-role="header" data-theme="b" data-position="fixed" data-id="main">
 				<a id="back" data-rel="back" data-role="button" data-inline="true" data-mini="true" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left">back</a>
 				<h1>All Cars</h1>
-				<a id="clear" href="#carlist" data-role="button" data-inline="true" data-mini="true" data-icon="minus" data-iconpos="notext" class="ui-btn-right">Clear</a>
+				<a id="clear" href="#home" data-role="button" data-inline="true" data-mini="true"  class="ui-btn-right">Clear Cars</a>
 			</div>
-	
-			<div id="cars" data-role="collapsible-set">
-
+			<div data-role="content" id="carlistDisplay">
+				<div id="cars" data-role="collapsible-set">
+					
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-id="main">
+				<div data-role="navbar" data-position="fixed" data-theme="a">
+					<ul>
+						<li><a href="#home"><img src="images/home2x.png" height="20px" width="40px"/><br/>Home</a></li>
+						<li><a href="#account"><img src="images/account2x.png" height="20px" width="40px"/><br/>Account</a></li>
+						<li><a href="#friends"><img src="images/friends2x.png" height="20px" width="40px"/><br/>Friends</a></li>
+						<li><a href="#near"><img src="images/near2x.png" height="20px" width="40px"/><br/>Nearby</a></li>
+					</ul>
+				</div><!-- /navbar -->
 			</div>
 
 		</div>
